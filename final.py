@@ -3,7 +3,7 @@ from wsgiref.simple_server import make_server
 import RPi.GPIO as GPIO
 
 GPIO.setwarnings(False)
-led=10
+led=13
 GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(led, GPIO.OUT)
@@ -29,7 +29,7 @@ def simple_app(env, start_response):
         return(but)
 
 
-httpd = make_server("", 8010, simple_app)
+httpd = make_server("", 8020, simple_app)
 print "Serving on port 8000..."
 httpd.serve_forever()
 
